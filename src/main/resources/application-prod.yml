@@ -1,0 +1,19 @@
+spring:
+  messages:
+    basename: messages/exception
+    encoding: UTF-8 
+
+
+server:
+  port: 9002 
+
+
+
+logging:
+  config: logback-spring.xml
+  
+
+hyperledger:
+  walletPath: wallet
+  connectionConfig: connection.yaml
+  

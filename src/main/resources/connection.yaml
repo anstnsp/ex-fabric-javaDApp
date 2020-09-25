@@ -1,0 +1,142 @@
+name: ex-corporation-org
+version: 1.0.0
+client:
+  organization: doro
+  connection:
+    timeout:
+      peer:
+        endorser: '300'
+
+channels:
+    dm-channel:
+        orderers:
+          - orderer0.orgorderer.com
+          - orderer1.orgorderer.com
+          - orderer2.orgorderer.com
+        peers:
+            peer0.orgdoro.com:
+              endorsingPeer: true
+              chaincodeQuery: true
+              ledgerQuery: true
+              eventSource: true
+
+    dh-channel:
+        orderers:
+          - orderer0.orgorderer.com
+          - orderer1.orgorderer.com
+          - orderer2.orgorderer.com
+        peers:
+            peer0.orgdoro.com:
+              endorsingPeer: true
+              chaincodeQuery: true
+              ledgerQuery: true
+              eventSource: true
+
+                    
+organizations:
+  doro:
+    mspid: doroMSP
+    peers:
+      - peer0.orgdoro.com
+    certificateAuthorities:
+      - ca.orgdoro.com
+
+orderers:
+   orderer0.orgorderer.com:
+      name: orderer0.orgorderer.com
+      url: grpcs://172.6.14.108:37060
+      tlsCACerts: 
+          pem: |
+            -----BEGIN CERTIFICATE-----
+            MIICGzCCAcGgAwIBAgIUDmljHWxbfMvWV/gO1WPhKYxJRAgwCgYIKoZIzj0EAwIw
+            aTELMAkGA1UEBhMCVVMxFzAVBgNVBAgTDk5vcnRoIENhcm9saW5hMRQwEgYDVQQK
+            EwtIeXBlcmxlZGdlcjEPMA0GA1UECxMGRmFicmljMRowGAYDVQQDExFjYS5vcmdv
+            cmRlcmVyLmNvbTAgFw0yMDA5MTgwMTE5MDBaGA8yMTIwMDkxOTAxMTkwMFowaTEL
+            MAkGA1UEBhMCVVMxFzAVBgNVBAgTDk5vcnRoIENhcm9saW5hMRQwEgYDVQQKEwtI
+            eXBlcmxlZGdlcjEPMA0GA1UECxMGRmFicmljMRowGAYDVQQDExFjYS5vcmdvcmRl
+            cmVyLmNvbTBZMBMGByqGSM49AgEGCCqGSM49AwEHA0IABAEUfwx39HAJR5hFHbh1
+            VORc1Yi89m1KeS79Xr2KSQYL4Q1kuxoa2Da0B/IfJQLj+AU7yGOxTv+U8oYYSgwe
+            reejRTBDMA4GA1UdDwEB/wQEAwIBBjASBgNVHRMBAf8ECDAGAQH/AgEBMB0GA1Ud
+            DgQWBBQpHY3bdWgVCNa7q3TFgOT96mBAmTAKBggqhkjOPQQDAgNIADBFAiEAm/N7
+            3ayJxxJFqlaj1af+GVaJM+SrlpuSf3q6bwoO+qYCIBfrk6DmrgT1wlvT6LnYDA9H
+            wnovbShnVNK0JIqsI6UU
+            -----END CERTIFICATE-----
+      grpcOptions:
+        ssl-target-name-override: orderer0.orgorderer.com
+        hostnameOverride: orderer0.orgorderer.com
+
+   orderer1.orgorderer.com:
+      name: orderer1.orgorderer.com
+      url: grpcs://172.6.14.108:37061
+      tlsCACerts: 
+          pem: |
+            -----BEGIN CERTIFICATE-----
+            MIICGzCCAcGgAwIBAgIUDmljHWxbfMvWV/gO1WPhKYxJRAgwCgYIKoZIzj0EAwIw
+            aTELMAkGA1UEBhMCVVMxFzAVBgNVBAgTDk5vcnRoIENhcm9saW5hMRQwEgYDVQQK
+            EwtIeXBlcmxlZGdlcjEPMA0GA1UECxMGRmFicmljMRowGAYDVQQDExFjYS5vcmdv
+            cmRlcmVyLmNvbTAgFw0yMDA5MTgwMTE5MDBaGA8yMTIwMDkxOTAxMTkwMFowaTEL
+            MAkGA1UEBhMCVVMxFzAVBgNVBAgTDk5vcnRoIENhcm9saW5hMRQwEgYDVQQKEwtI
+            eXBlcmxlZGdlcjEPMA0GA1UECxMGRmFicmljMRowGAYDVQQDExFjYS5vcmdvcmRl
+            cmVyLmNvbTBZMBMGByqGSM49AgEGCCqGSM49AwEHA0IABAEUfwx39HAJR5hFHbh1
+            VORc1Yi89m1KeS79Xr2KSQYL4Q1kuxoa2Da0B/IfJQLj+AU7yGOxTv+U8oYYSgwe
+            reejRTBDMA4GA1UdDwEB/wQEAwIBBjASBgNVHRMBAf8ECDAGAQH/AgEBMB0GA1Ud
+            DgQWBBQpHY3bdWgVCNa7q3TFgOT96mBAmTAKBggqhkjOPQQDAgNIADBFAiEAm/N7
+            3ayJxxJFqlaj1af+GVaJM+SrlpuSf3q6bwoO+qYCIBfrk6DmrgT1wlvT6LnYDA9H
+            wnovbShnVNK0JIqsI6UU
+            -----END CERTIFICATE-----
+      grpcOptions:
+        ssl-target-name-override: orderer1.orgorderer.com
+        hostnameOverride: orderer1.orgorderer.com
+
+
+   orderer2.orgorderer.com:
+      name: orderer2.orgorderer.com
+      url: grpcs://172.6.14.108:36060
+      tlsCACerts:
+          pem: |
+            -----BEGIN CERTIFICATE-----
+            MIICGzCCAcGgAwIBAgIUDmljHWxbfMvWV/gO1WPhKYxJRAgwCgYIKoZIzj0EAwIw
+            aTELMAkGA1UEBhMCVVMxFzAVBgNVBAgTDk5vcnRoIENhcm9saW5hMRQwEgYDVQQK
+            EwtIeXBlcmxlZGdlcjEPMA0GA1UECxMGRmFicmljMRowGAYDVQQDExFjYS5vcmdv
+            cmRlcmVyLmNvbTAgFw0yMDA5MTgwMTE5MDBaGA8yMTIwMDkxOTAxMTkwMFowaTEL
+            MAkGA1UEBhMCVVMxFzAVBgNVBAgTDk5vcnRoIENhcm9saW5hMRQwEgYDVQQKEwtI
+            eXBlcmxlZGdlcjEPMA0GA1UECxMGRmFicmljMRowGAYDVQQDExFjYS5vcmdvcmRl
+            cmVyLmNvbTBZMBMGByqGSM49AgEGCCqGSM49AwEHA0IABAEUfwx39HAJR5hFHbh1
+            VORc1Yi89m1KeS79Xr2KSQYL4Q1kuxoa2Da0B/IfJQLj+AU7yGOxTv+U8oYYSgwe
+            reejRTBDMA4GA1UdDwEB/wQEAwIBBjASBgNVHRMBAf8ECDAGAQH/AgEBMB0GA1Ud
+            DgQWBBQpHY3bdWgVCNa7q3TFgOT96mBAmTAKBggqhkjOPQQDAgNIADBFAiEAm/N7
+            3ayJxxJFqlaj1af+GVaJM+SrlpuSf3q6bwoO+qYCIBfrk6DmrgT1wlvT6LnYDA9H
+            wnovbShnVNK0JIqsI6UU
+            -----END CERTIFICATE-----
+      grpcOptions:
+        ssl-target-name-override: orderer2.orgorderer.com
+        hostnameOverride: orderer2.orgorderer.com   
+
+peers:
+  peer0.orgdoro.com:
+    url: grpcs://172.6.14.108:37050
+    tlsCACerts:
+        pem: |
+          -----BEGIN CERTIFICATE-----
+          MIICFDCCAbugAwIBAgIUUohmgFXm6ema7vQx0DKU4ykCotAwCgYIKoZIzj0EAwIw
+          ZjELMAkGA1UEBhMCVVMxFzAVBgNVBAgTDk5vcnRoIENhcm9saW5hMRQwEgYDVQQK
+          EwtIeXBlcmxlZGdlcjEPMA0GA1UECxMGRmFicmljMRcwFQYDVQQDEw5jYS5vcmdk
+          b3JvLmNvbTAgFw0yMDA5MTgwMTE5MDBaGA8yMTIwMDkxOTAxMTkwMFowZjELMAkG
+          A1UEBhMCVVMxFzAVBgNVBAgTDk5vcnRoIENhcm9saW5hMRQwEgYDVQQKEwtIeXBl
+          cmxlZGdlcjEPMA0GA1UECxMGRmFicmljMRcwFQYDVQQDEw5jYS5vcmdkb3JvLmNv
+          bTBZMBMGByqGSM49AgEGCCqGSM49AwEHA0IABDEhc52qoBQiR1ziaDn2YAzACDbb
+          6fZwWMzqHvPSlD7keVaQOt/iYr7QVIlYV6QYifRSRSuw9dYyKc33HgGtoGujRTBD
+          MA4GA1UdDwEB/wQEAwIBBjASBgNVHRMBAf8ECDAGAQH/AgEBMB0GA1UdDgQWBBQE
+          Je/T9o80Fi0ABx7W9YDKrOUeLDAKBggqhkjOPQQDAgNHADBEAiBakNBDL4mpTicf
+          Bi8uHlhsmSeRXtHV35oubaoYcXrYVwIgWYAVyoHcse2LzqXr5VpEkvzmxEU5cM9e
+          ALtUMlSrNcg=
+          -----END CERTIFICATE-----
+    grpcOptions:
+      ssl-target-name-override: peer0.orgdoro.com
+      hostnameOverride: peer0.orgdoro.com
+
+
+certificateAuthorities:
+    ca.orgdoro.com:
+        url: http://172.6.14.108:7054
+        caName: ca.orgdoro.com  

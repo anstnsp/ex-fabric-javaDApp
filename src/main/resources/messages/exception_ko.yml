@@ -1,0 +1,20 @@
+unKnown:
+  code: "9999"
+  msg: "서버오류가 발생하였습니다." 
+
+requiredParam:
+  code: "1001"
+  msg: "필수파라미터가 존재하지 않습니다."
+
+noJson:
+  code: "1002"
+  msg: "요청하신 데이터가 JSON형식에 맞지 않습니다."
+
+CCError:
+  code: "1003"
+  msg: "체인코드에서 발생한 정의되지 않은 에러."
+
+lengthError:
+  code: "1004"
+  msg: "요청하신 데이터의 길이가 맞지 않습니다."
+

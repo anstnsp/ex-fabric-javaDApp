@@ -1,0 +1,45 @@
+#자세한 사항은 아래 url 참고 
+#https://github.com/hyperledger/fabric-sdk-java/blob/master/src/main/java/org/hyperledger/fabric/sdk/helper/Config.java
+
+#Timeout settings 
+org.hyperledger.fabric.sdk.proposal.wait.time=120000
+org.hyperledger.fabric.sdk.channelconfig.wait_time=15000
+org.hyperledger.fabric.sdk.orderer_retry.wait_time=200
+org.hyperledger.fabric.sdk.orderer.ordererWaitTimeMilliSecs=10000
+org.hyperledger.fabric.sdk.peer.eventRegistration.wait_time=5000
+org.hyperledger.fabric.sdk.peer.retry_wait_time=500
+org.hyperledger.fabric.sdk.channel.genesisblock_wait_time=5000
+org.hyperledger.fabric.sdk.client.transaction_cleanup_up_timeout_wait_time=600000
+
+#Crypto configuration settings -- settings should not be changed.
+org.hyperledger.fabric.sdk.crypto.default_crypto_suite_factory=org.hyperledger.fabric.sdk.security.HLSDKJCryptoSuiteFactory
+org.hyperledger.fabric.sdk.security_level=256
+#org.hyperledger.fabric.sdk.security_provider_class_name=BouncyCastleProvider.class.getName()
+org.hyperledger.fabric.sdk.security_curve_mapping=256=secp256r1:384=secp384r1
+org.hyperledger.fabric.sdk.hash_algorithm=SHA2
+org.hyperledger.fabric.sdk.crypto.asymmetric_key_type=EC
+org.hyperledger.fabric.sdk.crypto.certificate_format=X.509
+org.hyperledger.fabric.sdk.crypto.default_signature_algorithm=SHA256withECDSA
+
+#Connection defaults
+org.hyperledger.fabric.sdk.connections.ssl.sslProvider=openSSL
+org.hyperledger.fabric.sdk.connections.ssl.negotiationType=TLS
+
+#Default HFClient thread executor settings.
+org.hyperledger.fabric.sdk.client.thread_executor_corepoolsize=0
+#org.hyperledger.fabric.sdk.client.thread_executor_maximumpoolsize=Integer.MAX_VALUE
+org.hyperledger.fabric.sdk.client.thread_executor_keepalivetime=60
+org.hyperledger.fabric.sdk.client.thread_executor_keepalivetimeunit=SECONDS
+
+#Logging settings
+org.hyperledger.fabric.sdk.log.stringlengthmax=64
+org.hyperledger.fabric.sdk.log.extraloglevel=0
+org.hyperledger.fabric.sdk.loglevel=null
+org.hyperledger.fabric.sdk.diagnosticFileDir=null 
+
+#Miscellaneous settings 
+org.hyperledger.fabric.sdk.proposal.consistency_validation=true
+org.hyperledger.fabric.sdk.peer.reconnection_warning_rate=50
+org.hyperledger.fabric.sdk.service_discovery.frequency_sec=120
+org.hyperledger.fabric.sdk.service_discovery.discovery_wait_time=5000
+org.hyperledger.fabric.sdk.service_discovery.as_localhost=false

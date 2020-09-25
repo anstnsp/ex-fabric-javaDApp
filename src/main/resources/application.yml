@@ -1,0 +1,70 @@
+spring:
+  profiles:
+    active : local # local(로컬), dev(개발) , prod(운영)  
+  #Process Id 파일위치 설정 
+  pid:
+    file: ex-DApp.pid
+
+  #에러코드정의 파일 설정. 
+  messages:
+    basename: messages/exception
+    encoding: UTF-8 
+  #DB 설정
+  datasource:
+    username: user-ex
+    password: test
+    url: jdbc:mariadb://172.6.14.108:3306/ex_dapp
+    hikari:
+      driver-class-name: org.mariadb.jdbc.Driver
+  #JPA 설정
+  jpa:
+    open-in-view: true
+    show-sql: false
+    hibernate:
+      ddl-auto: none
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+    properties:
+      hibernate:
+        format_sql: true
+
+server:
+  port: 8080
+  servlet:
+    encoding:
+      charset: UTF-8
+      enabled: true
+      force: true
+  shutdown: graceful
+
+logging:
+  level:
+    org:
+      hibernate:
+        sql: debug
+        type:
+          descriptor:
+            sql: debug
+  config: src/main/resources/logback-spring.xml
+  
+
+hyperledger:
+  walletPath: wallet
+  connectionConfig: src/main/resources/connection.yaml
+  caIpPort: http://172.6.14.108:7054
+  caCertPath: src/main/resources/rca.orgdoro.com-cert.pem 
+  hostIp: localhost
+  caEnrollId: admin
+  caEnrollPw: adminpw
+  mspId: doroMSP
+  settingConfing: src/main/resources/fabricConfig.yaml
+  eventName: setRstUnpaidEvent
+  #checkpointPath: checkpoint NOTE: 체크포인트를 파일로 변경 시 다시 사용 
+
+
+restTemplate:
+  readTimeout: 5000
+  connectTimeout: 3000
+  maxConnTotal: 50
+  maxConnPerRoute: 50
+  url: http://172.6.14.108:8099/saveNpdResultData
